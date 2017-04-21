@@ -1,0 +1,592 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/IWSLLC/json-csv"
+
+    >json-csv (v1.4.0)</a>
+</h1>
+<h4>Export a richly structured, JSON array to CSV</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.json-csv">module json-csv</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.csv">
+            function <span class="apidocSignatureSpan">json-csv.</span>csv
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.csvBuffered">
+            function <span class="apidocSignatureSpan">json-csv.</span>csvBuffered
+            <span class="apidocSignatureSpan">(data, options, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter">
+            function <span class="apidocSignatureSpan">json-csv.</span>exporter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">json-csv.</span>exporter.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.json-csv.exporter">module json-csv.exporter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.exporter">
+            function <span class="apidocSignatureSpan">json-csv.</span>exporter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.json-csv.exporter.prototype">module json-csv.exporter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.csv">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>csv
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.csvBuffered">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>csvBuffered
+            <span class="apidocSignatureSpan">(data, options, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.getBodyRow">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getBodyRow
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.getHeaderRow">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getHeaderRow
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.getValue">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getValue
+            <span class="apidocSignatureSpan">(data, arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.getValueIx">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getValueIx
+            <span class="apidocSignatureSpan">(data, args, ix)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.json-csv.exporter.prototype.prepValue">
+            function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>prepValue
+            <span class="apidocSignatureSpan">(arg, forceQuoted)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.json-csv" id="apidoc.module.json-csv">module json-csv</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.csv" id="apidoc.element.json-csv.csv">
+        function <span class="apidocSignatureSpan">json-csv.</span>csv
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">csv = function (options) {
+  return new exporter().csv(options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+When using the streaming API, you&#x27;ll need to also stream data into it.
+
+```js
+var jsoncsv = require(&#x27;json-csv&#x27;)
+
+var readable_source = &#x3c;something readable that emits data row by row&#x3e;
+readable_source
+  .pipe(jsoncsv.<span class="apidocCodeKeywordSpan">csv</span>(options))
+  .pipe(something_else_writable)
+```
+
+
+### Options
+```js
+{
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.csvBuffered" id="apidoc.element.json-csv.csvBuffered">
+        function <span class="apidocSignatureSpan">json-csv.</span>csvBuffered
+        <span class="apidocSignatureSpan">(data, options, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">csvBuffered = function (data, options, done) {
+  return new exporter().csvBuffered(data,options, done)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Usage
+-----
+
+### Buffered
+```js
+var jsoncsv = require(&#x27;json-csv&#x27;)
+
+jsoncsv.<span class="apidocCodeKeywordSpan">csvBuffered</span>(data, options, callback)
+```
+
+ - data : Array of JS objects
+ - callback : returns buffered result (see below)
+
+```js
+var callback = function(err,csv) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter" id="apidoc.element.json-csv.exporter">
+        function <span class="apidocSignatureSpan">json-csv.</span>exporter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exporter = function (options) {
+  this.options = options || {}
+  this.fieldSeparator = this.options.fieldSeparator || &#x27;,&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.json-csv.exporter" id="apidoc.module.json-csv.exporter">module json-csv.exporter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.exporter" id="apidoc.element.json-csv.exporter.exporter">
+        function <span class="apidocSignatureSpan">json-csv.</span>exporter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exporter = function (options) {
+  this.options = options || {}
+  this.fieldSeparator = this.options.fieldSeparator || &#x27;,&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.json-csv.exporter.prototype" id="apidoc.module.json-csv.exporter.prototype">module json-csv.exporter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.csv" id="apidoc.element.json-csv.exporter.prototype.csv">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>csv
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">csv = function (options) {
+  var writtenHeader = false
+  this.options = options || {}
+  this.fieldSeparator = this.options.fieldSeparator || &#x27;,&#x27;;
+  var self = this;
+
+  return es.through(function write(data) {
+    if (!writtenHeader)
+    {
+      this.emit(&#x27;data&#x27;, self.getHeaderRow())
+      writtenHeader = true
+    }
+    this.emit(&#x27;data&#x27;, self.getBodyRow(data))
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+When using the streaming API, you&#x27;ll need to also stream data into it.
+
+```js
+var jsoncsv = require(&#x27;json-csv&#x27;)
+
+var readable_source = &#x3c;something readable that emits data row by row&#x3e;
+readable_source
+  .pipe(jsoncsv.<span class="apidocCodeKeywordSpan">csv</span>(options))
+  .pipe(something_else_writable)
+```
+
+
+### Options
+```js
+{
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.csvBuffered" id="apidoc.element.json-csv.exporter.prototype.csvBuffered">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>csvBuffered
+        <span class="apidocSignatureSpan">(data, options, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">csvBuffered = function (data, options, done) {
+  if (!data) throw new Error(&#x22;No data provided.&#x22;)
+
+  if(typeof options == &#x27;function&#x27;)
+  {
+    done = options
+    options = {}
+  }
+
+  es.readArray(data)
+    .pipe(this.csv(options))
+    .pipe(concat(function(buffer) {
+      done(null, buffer)
+    }))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Usage
+-----
+
+### Buffered
+```js
+var jsoncsv = require(&#x27;json-csv&#x27;)
+
+jsoncsv.<span class="apidocCodeKeywordSpan">csvBuffered</span>(data, options, callback)
+```
+
+ - data : Array of JS objects
+ - callback : returns buffered result (see below)
+
+```js
+var callback = function(err,csv) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.getBodyRow" id="apidoc.element.json-csv.exporter.prototype.getBodyRow">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getBodyRow
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBodyRow = function (data) {
+  var self = this
+  var row = _.reduce(this.options.fields, function(line, field) {
+    if (line === &#x27;START&#x27;) {
+      line = &#x27;&#x27;;
+    } else {
+      line += self.fieldSeparator
+    }
+    var val = self.getValue(data, field.name)
+    if (field.filter) {
+      val = field.filter(val)
+    }
+    if (typeof val !== &#x27;undefined&#x27; &#x26;&#x26; val !== null) {
+      var quoted = typeof field.quoted !== &#x27;undefined&#x27; &#x26;&#x26; field.quoted
+      line += self.prepValue(val.toString(), quoted)
+    }
+    return line
+  }, &#x27;START&#x27;, self)
+
+  row += &#x27;\r\n&#x27;
+  return row
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+return es.through(function write(data) {
+  if (!writtenHeader)
+  {
+    this.emit(&#x27;data&#x27;, self.getHeaderRow())
+    writtenHeader = true
+  }
+  this.emit(&#x27;data&#x27;, self.<span class="apidocCodeKeywordSpan">getBodyRow</span>(data))
+})
+}
+
+exporter.prototype.prepValue = function(arg, forceQuoted) {
+var quoted = forceQuoted || arg.indexOf(&#x27;&#x22;&#x27;) &#x3e;= 0 || arg.indexOf(this.fieldSeparator) &#x3e;= 0 || arg.indexOf
+(&#x27;\n&#x27;) &#x3e;= 0
+var result = arg.replace(/\&#x22;/g,&#x27;&#x22;&#x22;&#x27;)
+if (quoted)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.getHeaderRow" id="apidoc.element.json-csv.exporter.prototype.getHeaderRow">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getHeaderRow
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHeaderRow = function () {
+  var self = this
+  var header = _.reduce(self.options.fields, function(line, field) {
+    var label = field.label || field.name
+    if (line === &#x27;START&#x27;) {
+      line = &#x27;&#x27;;
+    } else {
+      line += self.fieldSeparator
+    }
+    line += self.prepValue(label)
+    return line
+  }, &#x27;START&#x27;)
+  header += &#x27;\r\n&#x27;
+  return header
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.options = options || {}
+  this.fieldSeparator = this.options.fieldSeparator || &#x27;,&#x27;;
+  var self = this;
+
+  return es.through(function write(data) {
+    if (!writtenHeader)
+    {
+      this.emit(&#x27;data&#x27;, self.<span class="apidocCodeKeywordSpan">getHeaderRow</span>())
+      writtenHeader = true
+    }
+    this.emit(&#x27;data&#x27;, self.getBodyRow(data))
+  })
+}
+
+exporter.prototype.prepValue = function(arg, forceQuoted) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.getValue" id="apidoc.element.json-csv.exporter.prototype.getValue">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getValue
+        <span class="apidocSignatureSpan">(data, arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getValue = function (data, arg) {
+  var args = arg.split(&#x27;.&#x27;)
+  if (args.length &#x3e; 0)
+    return this.getValueIx(data, args, 0)
+  return &#x22;&#x22;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var self = this
+var row = _.reduce(this.options.fields, function(line, field) {
+  if (line === &#x27;START&#x27;) {
+    line = &#x27;&#x27;;
+  } else {
+    line += self.fieldSeparator
+  }
+  var val = self.<span class="apidocCodeKeywordSpan">getValue</span>(data, field.name)
+  if (field.filter) {
+    val = field.filter(val)
+  }
+  if (typeof val !== &#x27;undefined&#x27; &#x26;&#x26; val !== null) {
+    var quoted = typeof field.quoted !== &#x27;undefined&#x27; &#x26;&#x26; field.quoted
+    line += self.prepValue(val.toString(), quoted)
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.getValueIx" id="apidoc.element.json-csv.exporter.prototype.getValueIx">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>getValueIx
+        <span class="apidocSignatureSpan">(data, args, ix)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getValueIx = function (data, args, ix) {
+  if (!data)
+    return &#x27;&#x27;
+
+  //for filtered fields using the whole row as a source.
+  //`this` is a keyword here; hoping not to conflict with existing fields.
+  if (args[0] === &#x22;this&#x22;)
+    return data
+
+  var val = data[args[ix]]
+  if (typeof val === &#x27;undefined&#x27;)
+    return &#x27;&#x27;
+
+  //walk the dot-notation recursively to get the remaining values.
+  if ((args.length-1) &#x3e; ix)
+    return this.getValueIx(val, args, ix+1);
+
+  return val;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+row += &#x27;\r\n&#x27;
+return row
+}
+
+exporter.prototype.getValue = function(data, arg) {
+var args = arg.split(&#x27;.&#x27;)
+if (args.length &#x3e; 0)
+  return this.<span class="apidocCodeKeywordSpan">getValueIx</span>(data, args, 0)
+return &#x22;&#x22;
+}
+
+exporter.prototype.getValueIx = function(data, args, ix) {
+if (!data)
+  return &#x27;&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.json-csv.exporter.prototype.prepValue" id="apidoc.element.json-csv.exporter.prototype.prepValue">
+        function <span class="apidocSignatureSpan">json-csv.exporter.prototype.</span>prepValue
+        <span class="apidocSignatureSpan">(arg, forceQuoted)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepValue = function (arg, forceQuoted) {
+  var quoted = forceQuoted || arg.indexOf(&#x27;&#x22;&#x27;) &#x3e;= 0 || arg.indexOf(this.fieldSeparator) &#x3e;= 0 || arg.indexOf(&#x27;\n&#x27;) &#x3e;= 0
+  var result = arg.replace(/\&#x22;/g,&#x27;&#x22;&#x22;&#x27;)
+  if (quoted)
+    result = &#x27;&#x22;&#x27; + result + &#x27;&#x22;&#x27;
+  return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var header = _.reduce(self.options.fields, function(line, field) {
+    var label = field.label || field.name
+    if (line === &#x27;START&#x27;) {
+      line = &#x27;&#x27;;
+    } else {
+      line += self.fieldSeparator
+    }
+    line += self.<span class="apidocCodeKeywordSpan">prepValue</span>(label)
+    return line
+  }, &#x27;START&#x27;)
+  header += &#x27;\r\n&#x27;
+  return header
+}
+
+exporter.prototype.getBodyRow = function(data) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
